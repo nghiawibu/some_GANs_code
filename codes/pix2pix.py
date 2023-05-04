@@ -3,30 +3,12 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import MNIST
 import torchvision.transforms as T
 import torch.nn as nn
-import cv2
-import albumentations as A
 import os
 from torch.utils.data import Dataset
 import pandas as pd
 import numpy as np
 from PIL import Image
 from torchsummary import summary
-# train_dataset = YOLODataset(
-#     train_csv_path,
-#     transform=config.train_transforms,
-#     S=[IMAGE_SIZE // 32, IMAGE_SIZE // 16, IMAGE_SIZE // 8],
-#     img_dir=config.IMG_DIR,
-#     label_dir=config.LABEL_DIR,
-#     anchors=config.ANCHORS,
-# )
-# train_loader = DataLoader(
-#     dataset=train_dataset,
-#     batch_size=config.BATCH_SIZE,
-#     num_workers=config.NUM_WORKERS,
-#     pin_memory=config.PIN_MEMORY,
-#     shuffle=True,
-#     drop_last=False,
-# )
 
 
 class P2PDataset(Dataset):
@@ -70,12 +52,6 @@ def cuda(data):
     return data
 
 
-
-
-
-# Read data and transform
-# dataset = MNIST(root='./data', download=True, train=True, transform=img_transform)
-# dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 class EncoderBlock(nn.Module):
     def __init__(self, in_dim, out_dim, batch_norm=True, output=False):
